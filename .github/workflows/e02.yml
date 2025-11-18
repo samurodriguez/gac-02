@@ -4,6 +4,7 @@ on:
 jobs:
   matrix-exercise:
     strategy:
+      fail-fast: true
       max-parallel: 2
       matrix:
         os: [ubuntu-latest, windows-latest, macos-latest]
@@ -13,3 +14,5 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
+      - if: matrix.os == ubuntu-latest && matrix.node == 20
+        run: exit 1
