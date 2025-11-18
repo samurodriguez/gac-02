@@ -2,14 +2,19 @@ name: expressions
 on: workflow_dispatch
 jobs:
   testing-expressions:
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        name:
-          - pepe
-          - lucia
-          - marcos
-        color: [blue, pink, yellow]
+        os: [ubuntu-latest, macos-latest, windows-latest]
+        node: [18, 20, 22]
+        # name:
+        #   - pepe
+        #   - lucia
+        #   - marcos
+        # color: [blue, pink, yellow]
     steps:
       - run: echo ${{ github.actor }}
-      - run: echo ${{ matrix.name }} ${{ matrix.color }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+      # - run: echo ${{ matrix.name }} ${{ matrix.color }}
