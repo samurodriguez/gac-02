@@ -14,5 +14,5 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-      - if: matrix.os == ubuntu-latest && matrix.node == 20
+      - if: matrix.os == 'ubuntu-latest' && matrix.node == 20
         run: exit 1
