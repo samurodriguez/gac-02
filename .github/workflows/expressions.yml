@@ -3,5 +3,13 @@ on: workflow_dispatch
 jobs:
   testing-expressions:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        name:
+          - pepe
+          - lucia
+          - marcos
+        color: [blue, pink, yellow]
     steps:
       - run: echo ${{ github.actor }}
+      - run: echo ${{ matrix.name }} ${{ matrix.color }}
