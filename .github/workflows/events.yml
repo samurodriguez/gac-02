@@ -3,9 +3,9 @@ on:
   schedule:
     - cron: "*/10 * * * *"
   workflow_dispatch:
-  push:
-    branches-ignore:
-      - feature/*
+  # push:
+  #   branches-ignore:
+  #     - feature/*
 jobs:
   log-date:
     runs-on: ubuntu-latest
