@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   # push:
   #   branches-ignore:
-  #     - feature/*
+  #     - feature/**
 jobs:
   log-date:
     runs-on: ubuntu-latest
